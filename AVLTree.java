@@ -2,6 +2,14 @@
 public class AVLTree {
   Node root;
 
+  // A utility function to get height of the tree
+  int height(Node N) {
+      if (N == null)
+          return 0;
+
+      return N.getHeight();
+  }
+  
   static AVLTree insert(AVLTree sourceTree, Node newNode) throws Exception {
     AVLTree newTree = sourceTree;
 
@@ -11,9 +19,6 @@ public class AVLTree {
     }
 
     if (sourceTree.root == null) {
-      newNode.height = 0;
-      newNode.left = null;
-      newNode.right = null;
       newTree.root = newNode;
       
       return newTree;
@@ -29,16 +34,13 @@ public class AVLTree {
   Node insertNode(Node node, Node newNode) {
     
     if (node == null)
-      return (new Node(newNode.data));
+      return (new Node(newNode.getData()));
       
     // if current is greater than input then send to left
-    if (node.data.compareTo(newNode.data) > 0)
-      node.left = insertNode(node.left, newNode);
+    if (node.getData().compareTo(newNode.getData()) > 0)
+      node.setLeftChild(insertNode(node.getLeftChild(), newNode));
     else
-      node.right = insertNode(node.right, newNode);
-
-    // increase height
-    node.height += 1;
+      node.setRightChild(insertNode(node.getRightChild(), newNode));
 
     return node;
   }
@@ -53,9 +55,9 @@ public class AVLTree {
 
   void inOrderTraverse(Node node) {
     if (node != null) {
-      inOrderTraverse(node.left);
-      System.out.print(node.data + " ");
-      inOrderTraverse(node.right);
+      inOrderTraverse(node.getLeftChild());
+      System.out.print(node.getData() + " ");
+      inOrderTraverse(node.getRightChild());
     }
   }
 }

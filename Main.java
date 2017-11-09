@@ -15,9 +15,9 @@ public class Main {
     tree = AVLTree.insert(tree, new Node(30));
 
     
-    System.out.println("Root Node" + tree.root.data + " , height " + tree.root.height);
-    System.out.println("Root left" + tree.root.left.data + " , height " + tree.root.left.height);
-    System.out.println("Root right" + tree.root.right.data + " , height " + tree.root.right.height);
+    System.out.println("Root Node" + tree.root.getData());
+    System.out.println("Root left" + tree.root.getLeftChild().getData() );
+    System.out.println("Root right" + tree.root.getRightChild().getData());
     
     //print in order traversal
     AVLTree.inOrder(tree);
