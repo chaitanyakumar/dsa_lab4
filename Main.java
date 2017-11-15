@@ -57,7 +57,7 @@ public class Main {
     System.out.println(AVLTree.count(tree, 15, 25));
     System.out.println("-------------------------------------");
 
-    System.out.println("Count between 0 - 5");
+    System.out.println("Count between 0 - 5"); 
     System.out.println(AVLTree.count(tree, 0, 5));
     System.out.println("-------------------------------------");
 
