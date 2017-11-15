@@ -21,6 +21,7 @@ public class Node {
         left_child = null;
         right_child = null;
         parent = null;
+        height = 1;
     }
     
     @SuppressWarnings("rawtypes")
